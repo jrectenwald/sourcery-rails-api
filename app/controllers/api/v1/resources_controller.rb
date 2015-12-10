@@ -1,7 +1,9 @@
 class Api::V1::ResourcesController < ApplicationController
   
   def index
-    @resources_by_group = current_user.resources_by_group
+    # @resources_by_group = current_user.resources_by_group
+    @resources = Resource.all
+    render json: @resources
   end
 
   def show

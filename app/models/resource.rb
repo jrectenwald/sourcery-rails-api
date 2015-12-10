@@ -20,9 +20,9 @@ class Resource < ActiveRecord::Base
   belongs_to :user
   has_many :comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
-  validates :title, presence: true
-  validates :link, presence: true
-  validates :link, :format => URI::regexp(%w(http https))
+  # validates :title, presence: true
+  # validates :link, presence: true
+  # validates :link, :format => URI::regexp(%w(http https))
 
   def self.most_popular_resource_by_comments
     self.joins(:comments).select('resources.*, COUNT(comments.id) as comment_count').group('resources.id').order('comment_count DESC').limit(10)
