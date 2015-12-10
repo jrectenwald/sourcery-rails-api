@@ -10,8 +10,8 @@
 #
 
 class Group < ActiveRecord::Base
-  include PublicActivity::Model
-  tracked only: :create, owner: Proc.new { |controller, model| controller.current_user ? controller.current_user : nil }
+  # include PublicActivity::Model
+  # tracked only: :create, owner: Proc.new { |controller, model| controller.current_user ? controller.current_user : nil }
 
   has_many :user_groups
   has_many :users, through: :user_groups

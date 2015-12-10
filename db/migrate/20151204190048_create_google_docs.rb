@@ -1,6 +1,6 @@
-class CreateGoogleDocsTable < ActiveRecord::Migration
+class CreateGoogleDocs < ActiveRecord::Migration
   def change
-    create_table :google_docs_tables do |t|
+    create_table :google_docs do |t|
       t.string :title
       t.string :url
       t.string :doc_type
