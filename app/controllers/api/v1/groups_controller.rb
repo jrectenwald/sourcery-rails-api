@@ -27,12 +27,8 @@ class Api::V1::GroupsController < ApplicationController
   end
 
   def create
-    @group = Group.new(group_params)
-    @group.save!
-    current_user.groups << @group
-    redirect_to group_path(@group)
-    rescue ActiveRecord::RecordInvalid
-      render 'new'
+    @group = Group.create(group_params)
+    render json: @group
   end
 
   def edit
