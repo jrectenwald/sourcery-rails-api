@@ -8,7 +8,7 @@ Favorite.destroy_all
 GoogleDoc.destroy_all
 
 def make_users
-   800.times do |num|
+   300.times do |num|
     gmail_name =  Faker::Name.name 
     email =  Faker::Internet.email 
     created_at = 3.years.ago + (rand * num * 2).days
@@ -66,10 +66,6 @@ def make_resources_with_comments
       end
     end
   end
-end
-​
-def make_comments
-​
 end
 ​
 make_users
