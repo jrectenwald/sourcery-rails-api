@@ -15,6 +15,11 @@ class Api::V1::UsersController < ApplicationController
     render 'groups'
   end
 
+  def create
+    @user = User.create(user_params)
+    render json: @user
+  end
+
   # def join_group
   #   @group = Group.find(join_params)
   #   @group.add_member(current_user)
@@ -35,8 +40,12 @@ private
   #   params.require(:group_id)
   # end
 
-  def load_activities
-    @activities = PublicActivity::Activity.order('created_at DESC').where(owner_id: current_user.fellow_group_member_ids).limit(20)
+  # def load_activities
+  #   @activities = PublicActivity::Activity.order('created_at DESC').where(owner_id: current_user.fellow_group_member_ids).limit(20)
+  # end
+
+  def user_params
+    params.require(:user).permit(:gmail_name, :email)
   end
 
 

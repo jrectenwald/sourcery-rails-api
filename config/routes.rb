@@ -11,7 +11,7 @@ namespace :api do
     resources :sessions, only: [:create, :destroy]
     resource :home, only: [:show]
     get 'users/:id/groups' => 'users#groups', as: 'user_groups'
-    resources :users, only: [:show, :index]
+    resources :users, only: [:create, :show, :index]
     resources :resources
     resources :groups
     resources :comments, only: [:create, :destroy]
