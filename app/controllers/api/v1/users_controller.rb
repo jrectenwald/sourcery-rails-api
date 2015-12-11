@@ -1,11 +1,13 @@
 class Api::V1::UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
-    load_activities
+    render json: @user
   end
 
   def index
-    @users = User.where.not(id: current_user.friends_and_self_ids)
+    # @users = User.where.not(id: current_user.friends_and_self_ids)
+    @users = User.all
+    render json: @users
   end
 
   def groups
